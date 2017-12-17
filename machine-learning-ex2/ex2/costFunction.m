@@ -20,7 +20,12 @@ grad = zeros(size(theta));
 % Note: grad should have the same dimensions as theta
 %
 
+hx = sigmoid(X * theta);
+cost = -y .* log(hx) - (1 - y) .* log(1 - hx);
+J = 1 / m * sum(cost);
 
+derivative = (hx - y) .* X;
+grad = 1 / m * sum(derivative);
 
 
 
